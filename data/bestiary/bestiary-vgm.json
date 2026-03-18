@@ -1142,7 +1142,6 @@
 			"page": 209,
 			"referenceSources": [
 				"WDH",
-				"ToA",
 				"DIP",
 				"SLW",
 				"ERLW",
@@ -12159,7 +12158,6 @@
 			"referenceSources": [
 				"WDH",
 				"TftYP",
-				"ToA",
 				"LLK"
 			],
 			"reprintedAs": [
@@ -12300,7 +12298,8 @@
 				"SLW",
 				"SDW",
 				"MOT",
-				"TLK"
+				"TLK",
+				"IMR"
 			],
 			"reprintedAs": [
 				"Master Thief|MPMM"
@@ -16066,7 +16065,6 @@
 			"source": "VGM",
 			"page": 191,
 			"referenceSources": [
-				"ToA",
 				"IMR",
 				"MOT"
 			],
@@ -17068,7 +17066,6 @@
 			"page": 217,
 			"referenceSources": [
 				"WDH",
-				"ToA",
 				"DIP",
 				"SLW",
 				"SDW"

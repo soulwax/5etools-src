@@ -1,4 +1,4 @@
-import {getFnRootPropListSort} from "./utils-proporder-sort.js";
+import { getFnRootPropListSort } from "./utils-proporder-sort.js";
 
 export class ObjectKey {
 	/**
@@ -80,7 +80,7 @@ export class ArrayKey {
 			prop,
 			{
 				fnGetOrder: () => propToList[prop],
-				fnSort: getFnRootPropListSort(prop),
+				fnSort: getFnRootPropListSort(prop, {isRequired: true}),
 			},
 		);
 	}

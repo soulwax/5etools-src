@@ -22,7 +22,6 @@ class NavBar {
 	static _timersClose = {};
 	static _timerMousePos = {};
 	static _cachedInstallEvent = null;
-	static _isAiWidgetInit = false;
 
 	static init () {
 		this._initInstallPrompt();
@@ -43,7 +42,6 @@ class NavBar {
 		NavBar._clearAllTimers();
 
 		NavBar._initAdventureBookElements().then(null);
-		NavBar._pInitAiWidget().then(null);
 	}
 
 	static _initInstallPrompt () {
@@ -62,8 +60,8 @@ class NavBar {
 		btnShowHide.className = "ve-btn ve-btn-default page__btn-toggle-nav";
 		btnShowHide.innerHTML = "Menu";
 		btnShowHide.onclick = () => {
-			btnShowHide.classList.toggle("active");
-			em(`.page__nav-hidden-mobile`).forEach(ele => ele.toggleClass("block", btnShowHide.classList.contains("active")));
+			btnShowHide.classList.toggle("ve-active");
+			em(`.page__nav-hidden-mobile`).forEach(ele => ele.toggleClass("ve-block", btnShowHide.classList.contains("ve-active")));
 		};
 		document.getElementById("navigation").prepend(btnShowHide);
 
@@ -76,7 +74,7 @@ class NavBar {
 		this._addElement_dropdown({keyPath: [NavBar._CAT_RULES], category: NavBar._CAT_BOOKS, isSide: true, page: "books.html"});
 		this._addElement_li({keyPath: [NavBar._CAT_RULES, NavBar._CAT_BOOKS], page: "books.html", aText: "View All/Homebrew"});
 		this._addElement_divider({keyPath: [NavBar._CAT_RULES]});
-		this._addElement_li({keyPath: [NavBar._CAT_RULES], page: "quickreference.html", aText: "Quick Reference (2014)"});
+		this._addElement_li({keyPath: [NavBar._CAT_RULES], page: "quickreference.html", aText: "Quick Reference (5e/2014)"});
 
 		this._addElement_dropdown({category: NavBar._CAT_PLAYER});
 		this._addElement_li({keyPath: [NavBar._CAT_PLAYER], page: "classes.html", aText: "Classes"});
@@ -100,7 +98,7 @@ class NavBar {
 		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "objects.html", aText: "Objects"});
 		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "trapshazards.html", aText: "Traps & Hazards"});
 		this._addElement_divider({keyPath: [NavBar._CAT_DUNGEON_MASTER]});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "crcalculator.html", aText: "CR Calculator (2014)"});
+		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "crcalculator.html", aText: "CR Calculator (5e/2014)"});
 		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "encountergen.html", aText: "Encounter Generator"});
 		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "lootgen.html", aText: "Loot Generator"});
 		this._addElement_divider({keyPath: [NavBar._CAT_DUNGEON_MASTER]});
@@ -124,7 +122,6 @@ class NavBar {
 
 		this._addElement_dropdown({category: NavBar._CAT_UTILITIES});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "search.html", aText: "Search"});
-		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "ai-rules-chat.html", aText: "AI Rules Chat"});
 		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "blocklist.html", aText: "Content Blocklist"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "manageprerelease.html", aText: "Prerelease Content Manager"});
@@ -263,32 +260,6 @@ class NavBar {
 		);
 
 		this._addElement_li({page: "https://wiki.tercept.net/en/5eTools", aText: "Help", isExternal: true});
-	}
-
-	static async _pInitAiWidget () {
-		if (this._isAiWidgetInit) return;
-		this._isAiWidgetInit = true;
-
-		const currentPage = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-		if (currentPage === "ai-rules-chat.html") return;
-
-		if (!document.querySelector(`link[href="css/ai-rules-chat.css"]`)) {
-			const eleLink = document.createElement("link");
-			eleLink.rel = "stylesheet";
-			eleLink.href = "css/ai-rules-chat.css";
-			document.head.appendChild(eleLink);
-		}
-
-		if (document.querySelector(`script[src="js/ai-rules-chat-widget.js"]`)) return;
-
-		await new Promise(resolve => {
-			const eleScript = document.createElement("script");
-			eleScript.src = "js/ai-rules-chat-widget.js";
-			eleScript.async = true;
-			eleScript.onload = () => resolve();
-			eleScript.onerror = () => resolve();
-			document.body.appendChild(eleScript);
-		});
 	}
 
 	/**
@@ -462,15 +433,15 @@ class NavBar {
 		a.href = href;
 		a.innerHTML = `${this._addElement_getDatePrefix({date: date, isAddDateSpacer: isAddDateSpacer})}${this._addElement_getSourcePrefix({source: source})}${aText}${this._addElement_getSourceSuffix({source: source})}`;
 		a.classList.add("nav__link");
-		if (isInAccordion) a.classList.add(`nav2-accord__lnk-item`, `ve-inline-block`, `w-100`);
+		if (isInAccordion) a.classList.add(`nav2-accord__lnk-item`, `ve-inline-block`, `ve-w-100`);
 
 		if (isExternal) {
 			a.setAttribute("target", "_blank");
 			a.setAttribute("rel", "noopener noreferrer");
 		}
 		if (isExternalMark) {
-			a.classList.add("inline-split-v-center");
-			a.classList.add("w-100");
+			a.classList.add("ve-inline-split-v-center");
+			a.classList.add("ve-w-100");
 			a.innerHTML = `<span>${aText}</span><span class="glyphicon glyphicon-new-window"></span>`;
 		}
 
@@ -506,7 +477,7 @@ class NavBar {
 
 		// region Header button
 		const wrpHead = document.createElement("div");
-		wrpHead.className = "nav2-accord__head split-v-center clickable";
+		wrpHead.className = "nav2-accord__head ve-split-v-center ve-clickable";
 		wrpHead.onclick = evt => {
 			evt.stopPropagation();
 			evt.preventDefault();
@@ -546,12 +517,12 @@ class NavBar {
 		});
 	}
 
-	static _addElement_getDatePrefix ({date, isAddDateSpacer}) { return `${(date != null || isAddDateSpacer) ? `<div class="ve-small mr-2 page__nav-date ve-inline-block ve-text-right inline-block" aria-hidden="true">${date || ""}</div>` : ""}`; }
+	static _addElement_getDatePrefix ({date, isAddDateSpacer}) { return `${(date != null || isAddDateSpacer) ? `<div class="ve-small ve-mr-2 page__nav-date ve-inline-block ve-text-right ve-inline-block" aria-hidden="true">${date || ""}</div>` : ""}`; }
 	static _addElement_getSourcePrefix ({source}) { return `${source != null ? `<div class="nav2-list__disp-source ${Parser.sourceJsonToSourceClassname(source)}"></div>` : ""}`; }
 
 	static _addElement_getSourceSuffix ({source}) {
 		if (source == null) return "";
-		return Parser.sourceJsonToMarkerHtml(source, {isAddBrackets: true, additionalStyles: "ml-1 nav2-list__disp-legacy-marker"});
+		return Parser.sourceJsonToMarkerHtml(source, {isAddBrackets: true, additionalStyles: "ve-ml-1 nav2-list__disp-legacy-marker"});
 	}
 
 	static _addElement_divider ({keyPath}) {
@@ -569,7 +540,7 @@ class NavBar {
 
 		const li = document.createElement("li");
 		li.setAttribute("role", "presentation");
-		li.className = "italic ve-muted ve-small nav2-list__label";
+		li.className = "ve-italic ve-muted ve-small nav2-list__label";
 		li.innerHTML = `${this._addElement_getDatePrefix({date, isAddDateSpacer})}${html}`;
 
 		parentNode.getBodyElement().appendChild(li);
@@ -695,7 +666,7 @@ class NavBar {
 				eleSpan.className = [
 					className,
 					"ve-inline-block",
-					i ? null : "w-100 min-w-0",
+					i ? null : "ve-w-100 ve-min-w-0",
 				]
 					.filter(Boolean)
 					.join(" ");
@@ -1035,7 +1006,7 @@ NavBar.Node = class {
 
 	set isActive (val) {
 		this._isActive = !!val;
-		this?._head?.classList?.toggle("active", this._isActive);
+		this?._head?.classList?.toggle("ve-active", this._isActive);
 		if (this._parent) this._parent.isActive = this._isActive;
 	}
 

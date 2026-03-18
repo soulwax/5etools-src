@@ -1,7 +1,7 @@
-import {ArrayKey, IgnoredKey, ObjectKey, ObjectOrArrayKey} from "./utils-proporder-models.js";
-import {PROPS_FOUNDRY_DATA_INLINE} from "../foundry/foundry-consts.js";
-import {getFnRootPropListSort} from "./utils-proporder-sort.js";
-import {PROPORDER_ENTRY_DATA_OBJECT, PROPORDER_FOUNDRY_ACTIVITIES, PROPORDER_FOUNDRY_EFFECTS} from "./utils-proporder-config-shared.js";
+import { PROPS_FOUNDRY_DATA_INLINE } from "../foundry/foundry-consts.js";
+import { PROPORDER_ENTRY_DATA_OBJECT, PROPORDER_FOUNDRY_ACTIVITIES, PROPORDER_FOUNDRY_EFFECTS } from "./utils-proporder-config-shared.js";
+import { ArrayKey, IgnoredKey, ObjectKey, ObjectOrArrayKey } from "./utils-proporder-models.js";
+import { getFnRootPropListSort } from "./utils-proporder-sort.js";
 
 const getFoundryGeneric = ({propsMatchAdditional = [], isFeature = false} = {}) => {
 	const proporder = [
@@ -64,7 +64,27 @@ const getFoundryGeneric = ({propsMatchAdditional = [], isFeature = false} = {}) 
 };
 
 const PROPORDER_META = [
-	"sources",
+	new ArrayKey("sources", {
+		fnGetOrder: () => [
+			"json",
+			"abbreviation",
+			"full",
+
+			"url",
+			"version",
+			"dateReleased",
+
+			new ArrayKey("authors", {fnSort: SortUtil.ascSortLower}),
+			new ArrayKey("convertedBy", {fnSort: SortUtil.ascSortLower}),
+
+			"partnered",
+
+			"color",
+			"colorNight",
+
+			"targetSchema",
+		],
+	}),
 
 	"dependencies",
 	"includes",
@@ -91,6 +111,8 @@ const PROPORDER_META = [
 	"_dateLastModifiedHash",
 ];
 const PROPORDER_TEST = [
+	"references",
+
 	"additionalImageSources",
 ];
 const PROPORDER_FOUNDRY_GENERIC = getFoundryGeneric();
@@ -265,7 +287,7 @@ const PROPORDER_MONSTER = [
 			"_implementations",
 			...PROPORDER_MONSTER,
 		],
-		fnSort: getFnRootPropListSort("monster"),
+		fnSort: getFnRootPropListSort("monster", {isRequired: true}),
 	}),
 ];
 const PROPORDER_MONSTER__COPY_MOD = [
@@ -456,8 +478,8 @@ const PROPORDER_SPELL = [
 
 	...PROPS_FOUNDRY_DATA_INLINE,
 
-	new ObjectKey("roll20Spell", {
-		order: PROPORDER_ROLL20_SPELL,
+	new ArrayKey("roll20Spell", {
+		fnGetOrder: () => PROPORDER_ROLL20_SPELL,
 	}),
 ];
 const PROPORDER_SPELL__COPY_MOD = [
@@ -1336,7 +1358,7 @@ const PROPORDER_FEAT = [
 			"_implementations",
 			...PROPORDER_FEAT,
 		],
-		fnSort: getFnRootPropListSort("feat"),
+		fnSort: getFnRootPropListSort("feat", {isRequired: true}),
 	}),
 ];
 const PROPORDER_FEAT__COPY_MOD = [
@@ -1673,6 +1695,7 @@ const PROPORDER_MAGICVARIANT = [
 	"alias",
 	"group",
 	"source",
+	"referenceSources",
 
 	ObjectKey.getCopyKey({fnGetModOrder: () => PROPORDER_MAGICVARIANT__COPY_MOD}),
 
@@ -2072,7 +2095,7 @@ const PROPORDER_RACE_SUBRACE = [
 			"_implementations",
 			...PROPORDER_RACE,
 		],
-		fnSort: getFnRootPropListSort("subrace"),
+		fnSort: getFnRootPropListSort("subrace", {isRequired: true}),
 	}),
 ];
 const PROPORDER_RACE = [
@@ -2518,7 +2541,7 @@ export const PROPORDER_PROP_TO_LIST = {
 	"item": PROPORDER_ITEM,
 	"foundryItem": PROPORDER_FOUNDRY_GENERIC,
 	"baseitem": PROPORDER_ITEM,
-	"foundryBaseItem": PROPORDER_FOUNDRY_GENERIC,
+	"foundryBaseitem": PROPORDER_FOUNDRY_GENERIC,
 	"magicvariant": PROPORDER_MAGICVARIANT,
 	"foundryMagicvariant": PROPORDER_FOUNDRY_GENERIC,
 	"itemGroup": PROPORDER_ITEM,
@@ -2622,6 +2645,7 @@ export const PROPORDER_ROOT = [
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "itemGroup"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "magicvariant"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "itemFluff"),
+	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "foundryBaseitem"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "foundryItem"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "foundryMagicvariant"),
 

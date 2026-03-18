@@ -1,10 +1,10 @@
 import fs from "fs";
 import path from "path";
 import "../js/parser.js";
-import "../js/utils.js";
 import "../js/render.js";
+import "../js/utils.js";
 import * as ut from "../node/util.js";
-import {listFiles} from "../node/util.js";
+import { listFiles } from "../node/util.js";
 
 /**
  * @abstract
@@ -267,4 +267,8 @@ function main () {
 	return true;
 }
 
-export default main();
+const pMain = main();
+
+if (import.meta.main && !(await pMain)) process.exitCode = 1;
+
+export default pMain;

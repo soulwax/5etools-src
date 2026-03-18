@@ -1,9 +1,9 @@
+import { DmScreenUtil } from "../dmscreen-util.js";
+import { InitiativeTrackerSort } from "./dmscreen-initiativetracker-sort.js";
 import {
-	INITIATIVE_APPLICABILITY_NOT_APPLICABLE,
-	InitiativeTrackerStatColumnFactory,
+    INITIATIVE_APPLICABILITY_NOT_APPLICABLE,
+    InitiativeTrackerStatColumnFactory,
 } from "./dmscreen-initiativetracker-statcolumns.js";
-import {DmScreenUtil} from "../dmscreen-util.js";
-import {InitiativeTrackerSort} from "./dmscreen-initiativetracker-sort.js";
 
 /** @abstract */
 class _InitiativeTrackerRowStateBuilderBase {
@@ -154,7 +154,7 @@ export class InitiativeTrackerRowStateBuilderActive extends _InitiativeTrackerRo
 			conditions = null,
 		} = {},
 	) {
-		const isMon = name && source;
+		const isMon = !!(name && source);
 		const mon = await this.pGetScaledCreature({isMon, name, source, scaledCr, scaledSummonSpellLevel, scaledSummonClassLevel});
 		if (isMon && !mon) return null;
 

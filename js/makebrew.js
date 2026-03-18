@@ -1,11 +1,11 @@
-import {BuilderBase} from "./makebrew/makebrew-builder-base.js";
-import {SpellBuilder} from "./makebrew/makebrew-spell.js";
-import {CreatureBuilder} from "./makebrew/makebrew-creature.js";
-import {LegendaryGroupBuilder} from "./makebrew/makebrew-legendarygroup.js";
-import {PageUiUtil} from "./makebrew/makebrew-builderui.js";
-import {TagCondition, TaggerUtils} from "./converter/converterutils-tags.js";
-import {SITE_STYLE__CLASSIC} from "./consts.js";
-import {SourceUiUtil} from "./utils-ui/utils-ui-sourcebuilder.js";
+import { SITE_STYLE__CLASSIC } from "./consts.js";
+import { TagCondition, TaggerUtils } from "./converter/converterutils-tags.js";
+import { BuilderBase } from "./makebrew/makebrew-builder-base.js";
+import { PageUiUtil } from "./makebrew/makebrew-builderui.js";
+import { CreatureBuilder } from "./makebrew/makebrew-creature.js";
+import { LegendaryGroupBuilder } from "./makebrew/makebrew-legendarygroup.js";
+import { SpellBuilder } from "./makebrew/makebrew-spell.js";
+import { SourceUiUtil } from "./utils-ui/utils-ui-sourcebuilder.js";
 
 class PageUi {
 	constructor () {
@@ -188,13 +188,13 @@ class PageUi {
 
 		const prevMode = this._settings.activeBuilder;
 
-		const wrpMode = ee`<div class="w-100 split-v-center"><div class="sidemenu__row__label mr-2">Mode</div></div>`.appendTo(mnu);
+		const wrpMode = ee`<div class="ve-w-100 ve-split-v-center"><div class="sidemenu__row__label ve-mr-2">Mode</div></div>`.appendTo(mnu);
 		this._selBuilderMode = ee`
-			<select class="form-control input-xs">
+			<select class="ve-form-control ve-input-xs">
 				<option value="creatureBuilder">Creature</option>
 				<option value="legendaryGroupBuilder">Legendary Group</option>
 				<option value="spellBuilder">Spell</option>
-				<option value="none" class="italic">Everything Else?</option>
+				<option value="none" class="ve-italic">Everything Else?</option>
 			</select>
 		`
 			.appendTo(wrpMode)
@@ -214,11 +214,11 @@ class PageUi {
 
 		mnu.appends(PageUiUtil.getSideMenuDivider(true));
 
-		const wrpSource = ee`<div class="w-100 mb-2 split-v-center"><div class="sidemenu__row__label mr-2">Source</div></div>`.appendTo(mnu);
+		const wrpSource = ee`<div class="ve-w-100 ve-mb-2 ve-split-v-center"><div class="sidemenu__row__label ve-mr-2">Source</div></div>`.appendTo(mnu);
 		this._allSources = BrewUtil2.getSources().sort((a, b) => SortUtil.ascSortLower(a.full, b.full))
 			.map(it => it.json);
 		this._selSource = ee`
-			<select class="form-control input-xs">
+			<select class="ve-form-control ve-input-xs">
 				<option disabled>Select</option>
 				${this._allSources.map(s => `<option value="${s.qq()}">${Parser.sourceJsonToFull(s).qq()}</option>`)}
 			</select>`
@@ -230,7 +230,7 @@ class PageUi {
 		if (this._settings.activeSource) this._selSource.val(this._settings.activeSource);
 		else this._selSource.selectedIndex = 0;
 
-		const btnSourceEdit = ee`<button class="ve-btn ve-btn-default ve-btn-xs mr-2">Edit Selected Source</button>`
+		const btnSourceEdit = ee`<button class="ve-btn ve-btn-default ve-btn-xs ve-mr-2">Edit Selected Source</button>`
 			.onn("click", () => {
 				const curSourceJson = this._settings.activeSource;
 				const curSource = BrewUtil2.sourceJsonToSource(curSourceJson);
@@ -238,13 +238,13 @@ class PageUi {
 				this._doRebuildStageSource({mode: "edit", source: MiscUtil.copy(curSource)});
 				this.__setStageSource();
 			});
-		ee`<div class="w-100 mb-2">${btnSourceEdit}</div>`.appendTo(mnu);
+		ee`<div class="ve-w-100 ve-mb-2">${btnSourceEdit}</div>`.appendTo(mnu);
 
 		const btnSourceAdd = ee`<button class="ve-btn ve-btn-default ve-btn-xs">Add New Source</button>`.onn("click", () => {
 			this._doRebuildStageSource({mode: "add"});
 			this.__setStageSource();
 		});
-		ee`<div class="w-100">${btnSourceAdd}</div>`.appendTo(mnu);
+		ee`<div class="ve-w-100">${btnSourceAdd}</div>`.appendTo(mnu);
 
 		mnu.appends(PageUiUtil.getSideMenuDivider(true));
 		this._eleMenuInner = ee`<div></div>`.appendTo(mnu);

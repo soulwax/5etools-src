@@ -18464,6 +18464,9 @@
 				"QftIS",
 				"OotA"
 			],
+			"reprintedAs": [
+				"Scout|XMM"
+			],
 			"size": [
 				"S"
 			],
@@ -25958,7 +25961,8 @@
 				"PSX",
 				"KftGV",
 				"QftIS",
-				"SCC-CK"
+				"SCC-CK",
+				"CoS"
 			],
 			"reprintedAs": [
 				"Frog|XMM"

@@ -1,10 +1,10 @@
 import fs from "fs";
-import * as ut from "../node/util.js";
 import "../js/parser.js";
-import "../js/utils.js";
-import "../js/render.js";
 import "../js/render-dice.js";
-import {pInitConsoleOut} from "../node/util-commander.js";
+import "../js/render.js";
+import "../js/utils.js";
+import { pInitConsoleOut } from "../node/util-commander.js";
+import * as ut from "../node/util.js";
 
 const pLoadData = async (originalFilename, originalPath) => {
 	switch (originalFilename) {
@@ -328,4 +328,8 @@ async function main () {
 	return !errors.length;
 }
 
-export default main();
+const pMain = main();
+
+if (import.meta.main && !(await pMain)) process.exitCode = 1;
+
+export default pMain;

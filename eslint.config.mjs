@@ -1,6 +1,6 @@
 import js from "@eslint/js";
 import globals from "globals";
-import {CONFIG_IGNORES} from "./test/eslint/eslint-config.js";
+import { CONFIG_IGNORES } from "./test/eslint/eslint-config.js";
 import pluginVetJquery from "./test/eslint/eslint-plugin-jquery.js";
 
 export default [
@@ -199,6 +199,7 @@ export default [
 			"quotes": ["error", "double", {"allowTemplateLiterals": true}],
 			"no-var": "error",
 			"no-constant-binary-expression": "error",
+			"no-useless-assignment": "off",
 		},
 	},
 	CONFIG_IGNORES,

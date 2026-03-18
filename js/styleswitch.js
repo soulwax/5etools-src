@@ -2,7 +2,6 @@ export class StyleSwitcher {
 	static _STORAGE_KEY_THEME = "StyleSwitcher_style";
 	static _STORAGE_KEY_ROLLBOX = "StyleSwitcher_style-rollbox";
 	static _STORAGE_KEY_WIDE = "StyleSwitcher_style-wide";
-	static _STORAGE_KEY_FORCED_DARK_V1 = "StyleSwitcher_forced-dark-v1";
 
 	static _STORAGE_KEYS = [
 		this._STORAGE_KEY_THEME,
@@ -63,7 +62,7 @@ export class StyleSwitcher {
 	static getSelStyle () {
 		const selStyle = e_({
 			tag: "select",
-			clazz: "form-control input-xs",
+			clazz: "ve-form-control ve-input-xs",
 			children: Object.entries(this._STYLE_THEME_TO_DISPLAY_NAME)
 				.map(([id, name]) => ee`<option value="${id}">${name}</option>`),
 			change: () => {
@@ -80,7 +79,7 @@ export class StyleSwitcher {
 	static getSelRollboxPosition () {
 		const selStyle = e_({
 			tag: "select",
-			clazz: "form-control input-xs",
+			clazz: "ve-form-control ve-input-xs",
 			children: Object.entries(this._STYLE_ROLLBOX_TO_DISPLAY_NAME)
 				.map(([id, name]) => ee`<option value="${id}">${name}</option>`),
 			change: () => {
@@ -115,23 +114,7 @@ export class StyleSwitcher {
 
 	constructor () {
 		if (typeof window === "undefined") return;
-
-		let storedTheme = StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_THEME);
-
-		const isForcedDarkApplied = StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_FORCED_DARK_V1) === "true";
-		if (!isForcedDarkApplied) {
-			// Force all users currently on light/browser-default themes (or with no theme set)
-			// to use a dark theme once. After this, only users who explicitly pick a light
-			// theme will keep it.
-			if (!storedTheme || storedTheme === StyleSwitcher.STYLE_THEME_DAY || storedTheme === StyleSwitcher._STYLE_THEME_AUTOMATIC) {
-				storedTheme = StyleSwitcher._STYLE_THEME_NIGHT;
-				StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_KEY_THEME, storedTheme);
-			}
-
-			StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_KEY_FORCED_DARK_V1, "true");
-		}
-
-		this._setActiveStyleTheme(storedTheme || StyleSwitcher._STYLE_THEME_NIGHT);
+		this._setActiveStyleTheme(StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_THEME) || StyleSwitcher._STYLE_THEME_AUTOMATIC);
 		this._setActiveStyleRollbox(StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_ROLLBOX) || StyleSwitcher._STYLE_ROLLBOX_DEFAULT);
 		this._setActiveWide(StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_WIDE) === "true");
 	}

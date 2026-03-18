@@ -1,11 +1,11 @@
 import fs from "fs";
-import "../js/parser.js";
-import "../js/utils.js";
-import "../js/render.js";
-import * as ut from "./util.js";
-import "../js/utils-dataloader.js";
+import { UtilGenTables } from "../js/generate-tables-data/generate-tables-data-utils.js";
 import "../js/hist.js";
-import {UtilGenTables} from "../js/generate-tables-data/generate-tables-data-utils.js";
+import "../js/parser.js";
+import "../js/render.js";
+import "../js/utils-dataloader.js";
+import "../js/utils.js";
+import * as ut from "./util.js";
 
 class GenTables {
 	static _GenState = class {
@@ -76,6 +76,7 @@ class GenTables {
 		await this._pAddClassData(genState);
 		await this._pAddVariantRuleData(genState);
 		await this._pAddBackgroundData(genState);
+		await this._pAddItemsData(genState);
 		await this._pAddEncountersData(genState);
 		await this._pAddNamesData(genState);
 
@@ -152,6 +153,14 @@ class GenTables {
 			genState,
 			path: `./data/backgrounds.json`,
 			props: ["background"],
+		});
+	}
+
+	async _pAddItemsData (genState) {
+		return this._pAddGenericEntityData({
+			genState,
+			path: `./data/items.json`,
+			props: ["item"],
 		});
 	}
 

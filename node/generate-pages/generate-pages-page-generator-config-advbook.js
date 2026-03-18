@@ -1,5 +1,5 @@
-import {PageGeneratorAdventureBookBase, PageGeneratorAdventuresBooksBase} from "./generate-pages-page-generator.js";
-import {HtmlGeneratorListButtons} from "./generate-pages-html-generator.js";
+import { HtmlGeneratorListButtons } from "./generate-pages-html-generator.js";
+import { PageGeneratorAdventureBookBase, PageGeneratorAdventuresBooksBase } from "./generate-pages-page-generator.js";
 
 class _PageGeneratorAdventure extends PageGeneratorAdventureBookBase {
 	_page = UrlUtil.PG_ADVENTURE;
@@ -24,8 +24,8 @@ class _PageGeneratorBook extends PageGeneratorAdventureBookBase {
 class _PageGeneratorQuickref extends PageGeneratorAdventureBookBase {
 	_page = UrlUtil.PG_QUICKREF;
 
-	_pageTitle = "Quick Reference (2014)";
-	_navbarTitle = "Quick Reference (2014)";
+	_pageTitle = "Quick Reference (5e/2014)";
+	_navbarTitle = "Quick Reference (5e/2014)";
 	_navbarDescription = "Browse content. Press F to find, and G to go to page.";
 	_scriptIdentAdvBook = "quickreference";
 	_advBookPlaceholder = `Trans rights are human rights.`;

@@ -1,6 +1,6 @@
-import * as ut from "../node/util.js";
 import "../js/parser.js";
 import "../js/utils.js";
+import * as ut from "../node/util.js";
 
 const _MULTISOURCE_DIRS = [
 	"bestiary",
@@ -44,6 +44,11 @@ function main () {
 	}
 
 	console.error(`##### Multisource source test failed! #####\n${sourceIncorrect.map(it => `\t${it}`).join("\n")}`);
+	return false;
 }
 
-export default main();
+const pMain = main();
+
+if (import.meta.main && !(await pMain)) process.exitCode = 1;
+
+export default pMain;

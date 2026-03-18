@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import {Um, Uf, JsonTester} from "5etools-utils";
+import { JsonTester, Uf, Um } from "5etools-utils";
 
 const LOG_TAG = "JSON";
 const _IS_FAIL_SLOW = !!process.env.FAIL_SLOW;
@@ -56,4 +56,8 @@ async function main () {
 	return true;
 }
 
-export default main();
+const pMain = main();
+
+if (import.meta.main && !(await pMain)) process.exitCode = 1;
+
+export default pMain;

@@ -1,8 +1,8 @@
-import "../js/parser.js";
-import "../js/utils.js";
-import "../js/render.js";
-import * as ut from "../node/util.js";
 import fs from "fs";
+import "../js/parser.js";
+import "../js/render.js";
+import "../js/utils.js";
+import * as ut from "../node/util.js";
 
 const _IS_FIX = false;
 
@@ -79,4 +79,8 @@ async function main () {
 	return true;
 }
 
-export default main();
+const pMain = main();
+
+if (import.meta.main && !(await pMain)) process.exitCode = 1;
+
+export default pMain;

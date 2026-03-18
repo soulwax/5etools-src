@@ -1,17 +1,17 @@
+import { RenderableCollectionConditions } from "../../initiativetracker/initiativetracker-utils.js";
+import { InitiativeTrackerConditionAdd } from "./dmscreen-initiativetracker-conditionadd.js";
+import { InitiativeTrackerConst } from "./dmscreen-initiativetracker-consts.js";
 import {
-	IS_PLAYER_VISIBLE_ALL,
-	IS_PLAYER_VISIBLE_NONE,
-} from "./dmscreen-initiativetracker-statcolumns.js";
-import {InitiativeTrackerConditionAdd} from "./dmscreen-initiativetracker-conditionadd.js";
-import {InitiativeTrackerUi} from "./dmscreen-initiativetracker-ui.js";
-import {InitiativeTrackerConst} from "./dmscreen-initiativetracker-consts.js";
-import {InitiativeTrackerSort} from "./dmscreen-initiativetracker-sort.js";
-import {RenderableCollectionConditions} from "../../initiativetracker/initiativetracker-utils.js";
-import {
-	InitiativeTrackerRowDataViewBase,
-	RenderableCollectionRowDataBase,
+    InitiativeTrackerRowDataViewBase,
+    RenderableCollectionRowDataBase,
 } from "./dmscreen-initiativetracker-rowsbase.js";
-import {InitiativeTrackerRowStateBuilderActive} from "./dmscreen-initiativetracker-rowstatebuilder.js";
+import { InitiativeTrackerRowStateBuilderActive } from "./dmscreen-initiativetracker-rowstatebuilder.js";
+import { InitiativeTrackerSort } from "./dmscreen-initiativetracker-sort.js";
+import {
+    IS_PLAYER_VISIBLE_ALL,
+    IS_PLAYER_VISIBLE_NONE,
+} from "./dmscreen-initiativetracker-statcolumns.js";
+import { InitiativeTrackerUi } from "./dmscreen-initiativetracker-ui.js";
 
 class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase {
 	constructor (
@@ -110,12 +110,12 @@ class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase
 				});
 			});
 
-		ee`<div class="dm-init__wrp-creature split">
+		ee`<div class="dm-init__wrp-creature ve-split">
 			<span class="dm-init__wrp-creature-link">
 				${lnk}
 				${dispOrdinal}
 			</span>
-			<div class="ve-flex-v-center ve-btn-group mr-3p">
+			<div class="ve-flex-v-center ve-btn-group ve-mr-3p">
 				${btnRename}
 				${btnDuplicate}
 			</div>
@@ -164,9 +164,9 @@ class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase
 				];
 			});
 
-		const wrpConds = ee`<div class="init__wrp_conds h-100"></div>`;
+		const wrpConds = ee`<div class="init__wrp_conds ve-h-100"></div>`;
 
-		ee`<div class="split">
+		ee`<div class="ve-split">
 			${wrpConds}
 			${btnAddCond}
 		</div>`
@@ -189,7 +189,7 @@ class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase
 			{
 				isAllowNull: true,
 				fallbackOnNaN: null,
-				html: `<input class="form-control input-sm score dm-init-lockable dm-init__row-input ve-text-center dm-init__ipt--rhs">`,
+				html: `<input class="ve-form-control ve-input-sm score dm-init-lockable dm-init__row-input ve-text-center dm-init__ipt--rhs">`,
 			},
 		)
 			.onn("click", () => iptInitiative.selecte())

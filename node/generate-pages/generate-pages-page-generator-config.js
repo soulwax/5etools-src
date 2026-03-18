@@ -1,10 +1,10 @@
-import {PAGE_GENERATORS_LISTPAGE} from "./generate-pages-page-generator-config-list.js";
-import {PAGE_GENERATORS_REDIRECT} from "./generate-pages-page-generator-config-redirect.js";
-import {PAGE_GENERATORS_ADVENTURE_BOOK} from "./generate-pages-page-generator-config-advbook.js";
-import {PageGeneratorGeneric} from "./generate-pages-page-generator.js";
-import {PAGE_GENERATORS_TABLEPAGE} from "./generate-pages-page-generator-config-tablepage.js";
-import {PAGE_GENERATORS_MANAGER} from "./generate-pages-page-generator-config-manager.js";
-import {PAGE_GENERATORS_SEO_INDEX} from "./generate-pages-page-generator-config-seo.js";
+import { PAGE_GENERATORS_ADVENTURE_BOOK } from "./generate-pages-page-generator-config-advbook.js";
+import { PAGE_GENERATORS_LISTPAGE } from "./generate-pages-page-generator-config-list.js";
+import { PAGE_GENERATORS_MANAGER } from "./generate-pages-page-generator-config-manager.js";
+import { PAGE_GENERATORS_REDIRECT } from "./generate-pages-page-generator-config-redirect.js";
+import { PAGE_GENERATORS_SEO_INDEX } from "./generate-pages-page-generator-config-seo.js";
+import { PAGE_GENERATORS_TABLEPAGE } from "./generate-pages-page-generator-config-tablepage.js";
+import { PageGeneratorGeneric } from "./generate-pages-page-generator.js";
 
 class _PageGeneratorMaps extends PageGeneratorGeneric {
 	_filename = "page/template-page-maps.hbs";
@@ -113,7 +113,7 @@ class _PageGeneratorCrcalculator extends PageGeneratorGeneric {
 	_filename = "page/template-page-crcalculator.hbs";
 	_page = "crcalculator.html";
 
-	_pageTitle = "CR Calculator (2014)";
+	_pageTitle = "CR Calculator (5e/2014)";
 	_navbarDescription = "Easily build custom creatures.";
 
 	_stylesheets = [

@@ -1,6 +1,6 @@
+import { ESLint } from "eslint";
 import fs from "fs";
-import {ESLint} from "eslint";
-import {pGetModifiedFiles} from "./util-git.js";
+import { pGetModifiedFiles } from "./util-git.js";
 
 /**
  * @see https://eslint.org/docs/latest/integrate/nodejs-api
@@ -15,7 +15,6 @@ const pDoLint = async () => {
 
 	const eslint = new ESLint({
 		fix: true,
-		flags: ["unstable_config_lookup_from_file"],
 	});
 
 	const results = await eslint.lintFiles(fileList);
