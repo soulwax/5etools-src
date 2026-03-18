@@ -2,14 +2,14 @@ import { RenderableCollectionConditions } from "../../initiativetracker/initiati
 import { InitiativeTrackerConditionAdd } from "./dmscreen-initiativetracker-conditionadd.js";
 import { InitiativeTrackerConst } from "./dmscreen-initiativetracker-consts.js";
 import {
-    InitiativeTrackerRowDataViewBase,
-    RenderableCollectionRowDataBase,
+	InitiativeTrackerRowDataViewBase,
+	RenderableCollectionRowDataBase,
 } from "./dmscreen-initiativetracker-rowsbase.js";
 import { InitiativeTrackerRowStateBuilderActive } from "./dmscreen-initiativetracker-rowstatebuilder.js";
 import { InitiativeTrackerSort } from "./dmscreen-initiativetracker-sort.js";
 import {
-    IS_PLAYER_VISIBLE_ALL,
-    IS_PLAYER_VISIBLE_NONE,
+	IS_PLAYER_VISIBLE_ALL,
+	IS_PLAYER_VISIBLE_NONE,
 } from "./dmscreen-initiativetracker-statcolumns.js";
 import { InitiativeTrackerUi } from "./dmscreen-initiativetracker-ui.js";
 

@@ -1,8 +1,8 @@
 import { PILL_STATE__IGNORE } from "../filter/filter-constants.js";
 import {
-    LOOT_TABLES_TYPE__DMG_MAGIC_ITEMS,
-    LOOT_TABLES_TYPE__XDMG_THEMES,
-    LOOT_TABLES_TYPE__XGE_FAUX,
+	LOOT_TABLES_TYPE__DMG_MAGIC_ITEMS,
+	LOOT_TABLES_TYPE__XDMG_THEMES,
+	LOOT_TABLES_TYPE__XGE_FAUX,
 } from "./lootgen-const.js";
 import { LootGenUiDataManager } from "./lootgen-datamanager.js";
 import { ModalFilterGemsArtObjects } from "./lootgen-filter-gemsartobjects.js";

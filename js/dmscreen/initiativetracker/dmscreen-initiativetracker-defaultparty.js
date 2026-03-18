@@ -1,5 +1,5 @@
 import {
-    InitiativeTrackerRowDataViewDefaultParty,
+	InitiativeTrackerRowDataViewDefaultParty,
 } from "./dmscreen-initiativetracker-rowsdefaultparty.js";
 
 export class InitiativeTrackerDefaultParty extends BaseComponent {

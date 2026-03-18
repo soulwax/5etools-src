@@ -1,8 +1,8 @@
 import {
-    InitiativeTrackerPlayerMessageHandlerV0,
-    InitiativeTrackerPlayerMessageHandlerV1,
-    InitiativeTrackerPlayerUiV0,
-    InitiativeTrackerPlayerUiV1,
+	InitiativeTrackerPlayerMessageHandlerV0,
+	InitiativeTrackerPlayerMessageHandlerV1,
+	InitiativeTrackerPlayerUiV0,
+	InitiativeTrackerPlayerUiV1,
 } from "./initiativetracker/initiativetracker-player.js";
 
 window.addEventListener("load", async () => {

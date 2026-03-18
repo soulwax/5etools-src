@@ -1,8 +1,8 @@
 import { DmScreenUtil } from "../dmscreen-util.js";
 import { InitiativeTrackerSort } from "./dmscreen-initiativetracker-sort.js";
 import {
-    INITIATIVE_APPLICABILITY_NOT_APPLICABLE,
-    InitiativeTrackerStatColumnFactory,
+	INITIATIVE_APPLICABILITY_NOT_APPLICABLE,
+	InitiativeTrackerStatColumnFactory,
 } from "./dmscreen-initiativetracker-statcolumns.js";
 
 /** @abstract */

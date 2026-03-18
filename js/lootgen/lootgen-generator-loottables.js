@@ -1,7 +1,7 @@
 import {
-    LOOT_TABLES_TYPE__DMG_MAGIC_ITEMS,
-    LOOT_TABLES_TYPE__XDMG_THEMES,
-    LOOT_TABLES_TYPE__XGE_FAUX,
+	LOOT_TABLES_TYPE__DMG_MAGIC_ITEMS,
+	LOOT_TABLES_TYPE__XDMG_THEMES,
+	LOOT_TABLES_TYPE__XGE_FAUX,
 } from "./lootgen-const.js";
 import { LootGenGeneratorBase } from "./lootgen-generator-base.js";
 import { LootGenMagicItem } from "./lootgen-magicitem.js";

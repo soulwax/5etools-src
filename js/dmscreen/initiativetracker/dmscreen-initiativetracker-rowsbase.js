@@ -1,6 +1,6 @@
 import { InitiativeTrackerUtil } from "../../initiativetracker/initiativetracker-utils.js";
 import {
-    InitiativeTrackerStatColumnFactory,
+	InitiativeTrackerStatColumnFactory,
 } from "./dmscreen-initiativetracker-statcolumns.js";
 
 class _RenderableCollectionRowStatColData extends RenderableCollectionGenericRows {

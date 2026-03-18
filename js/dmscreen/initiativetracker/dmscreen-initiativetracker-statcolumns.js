@@ -1,8 +1,8 @@
 import { InitiativeTrackerUtil } from "../../initiativetracker/initiativetracker-utils.js";
 import { InitiativeTrackerConst } from "./dmscreen-initiativetracker-consts.js";
 import {
-    InitiativeTrackerRowStatsColDataSerializer,
-    InitiativeTrackerStatColumnDataSerializer,
+	InitiativeTrackerRowStatsColDataSerializer,
+	InitiativeTrackerStatColumnDataSerializer,
 } from "./dmscreen-initiativetracker-serial.js";
 
 export const GROUP_BASE_STATS = "baseStats";

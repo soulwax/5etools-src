@@ -9,22 +9,22 @@ import { InitiativeTrackerMonsterAdd } from "./dmscreen-initiativetracker-monste
 import { InitiativeTrackerNetworking } from "./dmscreen-initiativetracker-networking.js";
 import { InitiativeTrackerRoller } from "./dmscreen-initiativetracker-roller.js";
 import {
-    InitiativeTrackerRowDataViewActive,
+	InitiativeTrackerRowDataViewActive,
 } from "./dmscreen-initiativetracker-rowsactive.js";
 import {
-    InitiativeTrackerRowStateBuilderActive,
-    InitiativeTrackerRowStateBuilderDefaultParty,
+	InitiativeTrackerRowStateBuilderActive,
+	InitiativeTrackerRowStateBuilderDefaultParty,
 } from "./dmscreen-initiativetracker-rowstatebuilder.js";
 import {
-    InitiativeTrackerConditionCustomSerializer,
-    InitiativeTrackerRowDataSerializer,
-    InitiativeTrackerStatColumnDataSerializer,
+	InitiativeTrackerConditionCustomSerializer,
+	InitiativeTrackerRowDataSerializer,
+	InitiativeTrackerStatColumnDataSerializer,
 } from "./dmscreen-initiativetracker-serial.js";
 import { InitiativeTrackerSettings } from "./dmscreen-initiativetracker-settings.js";
 import { InitiativeTrackerSort } from "./dmscreen-initiativetracker-sort.js";
 import {
-    InitiativeTrackerStatColumnFactory,
-    IS_PLAYER_VISIBLE_ALL,
+	InitiativeTrackerStatColumnFactory,
+	IS_PLAYER_VISIBLE_ALL,
 } from "./dmscreen-initiativetracker-statcolumns.js";
 
 // TODO(Future) refactor to subclass `DmScreenPanelAppBase`; move state to `_comp`

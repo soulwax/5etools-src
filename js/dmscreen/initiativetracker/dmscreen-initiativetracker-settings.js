@@ -1,9 +1,9 @@
 import {
-    GROUP_DISPLAY_NAMES,
-    InitiativeTrackerStatColumnFactory,
-    IS_PLAYER_VISIBLE_ALL,
-    IS_PLAYER_VISIBLE_NONE,
-    IS_PLAYER_VISIBLE_PLAYER_UNITS_ONLY,
+	GROUP_DISPLAY_NAMES,
+	InitiativeTrackerStatColumnFactory,
+	IS_PLAYER_VISIBLE_ALL,
+	IS_PLAYER_VISIBLE_NONE,
+	IS_PLAYER_VISIBLE_PLAYER_UNITS_ONLY,
 } from "./dmscreen-initiativetracker-statcolumns.js";
 import { InitiativeTrackerUi } from "./dmscreen-initiativetracker-ui.js";
 

@@ -1,8 +1,8 @@
 import {
-    InitiativeTrackerPlayerMessageHandlerV0,
-    InitiativeTrackerPlayerMessageHandlerV1,
-    InitiativeTrackerPlayerUiV0,
-    InitiativeTrackerPlayerUiV1,
+	InitiativeTrackerPlayerMessageHandlerV0,
+	InitiativeTrackerPlayerMessageHandlerV1,
+	InitiativeTrackerPlayerUiV0,
+	InitiativeTrackerPlayerUiV1,
 } from "../initiativetracker/initiativetracker-player.js";
 import { PANEL_TYP_INITIATIVE_TRACKER } from "./dmscreen-consts.js";
 import { DmScreenPanelAppBase } from "./dmscreen-panelapp-base.js";
