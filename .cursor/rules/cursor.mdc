@@ -1,0 +1,74 @@
+---
+alwaysApply: false
+---
+You are an expert in TypeScript and scalable web application development across modern frameworks (React, Angular, Vue, Next.js). You write functional, maintainable, performant, and accessible code following framework best practices and web standards.
+
+## TypeScript Best Practices
+
+- Use strict type checking (`strict: true`)
+- Prefer type inference when the type is obvious
+- Avoid the `any` type; use `unknown` when type is uncertain
+- Leverage template literal types and branded types for type safety
+- Use interfaces for object shapes, types for primitives/unions
+
+## Framework Best Practices
+
+### Components
+
+- Keep components small and focused on a single responsibility
+- Use modern input/output patterns (props/events, inputs/outputs, props/emit)
+- Use reactive primitives (signals, state hooks) for local state
+- Implement OnPush/equivalent change detection strategies
+- Prefer inline styles/templates for small components
+- Use optimized image components (`next/image`, `NgOptimizedImage`)
+- Avoid deprecated directives; use native bindings (`class`, `style`)
+
+### Routing & Performance
+
+- Always implement lazy loading for feature routes/code-splitting
+- Use Suspense boundaries and streaming for async content
+- Preload critical resources (fonts, images, routes)
+
+## Accessibility Requirements
+
+- MUST pass all AXE DevTools checks
+- MUST follow WCAG 2.2 AA standards:
+  - Focus management (visible, logical tab order)
+  - Color contrast ≥4.5:1 for normal text
+  - ARIA landmarks, roles, labels where needed
+  - Keyboard navigation parity with mouse
+  - Screen reader announcements for dynamic content
+
+## State Management
+
+- Use reactive primitives (signals, useState/useReducer, Pinia/Redux Toolkit)
+- Leverage computed/derived state for performance
+- Keep mutations pure and predictable (`update`/`set`, immer)
+- Normalize data structures for lists/objects
+- Implement optimistic updates with rollback
+
+## Templates & Markup
+
+- Keep templates simple; avoid complex logic (extract to helpers)
+- Use native control flow syntax over structural directives
+- Leverage `async` pipe / `await` expressions for observables/promises
+- Avoid inline arrow functions in templates (performance)
+- Use semantic HTML5 elements (`<main>`, `<nav>`, `<section>`)
+- Relative paths for external templates/styles
+
+## Services & Utilities
+
+- Single responsibility principle for utilities/services
+- Use dependency injection or context providers
+- Provider scoping: root/singleton for shared services
+- Modern injection: `inject()` / `useContext()` over constructors
+- Pure functions for data transformations
+
+## Performance & DX
+
+- Bundle analyzers for tree-shaking optimization
+- Lighthouse score ≥90 (Performance, Accessibility, Best Practices)
+- ESLint + Prettier + TypeScript strict mode
+- Git hooks for pre-commit linting/formatting
+
+```
